@@ -1,0 +1,17 @@
+<label for="myDropdown">Select multiple values:</label>
+<select id="myDropdown" multiple onchange="populateInputField()">
+  <option value="value1">Value 1</option>
+  <option value="value2">Value 2</option>
+  <option value="value3">Value 3</option>
+</select>
+
+<input type="text" id="myInputField" readonly>
+
+<script>
+  function populateInputField() {
+    var dropdown = document.getElementById("myDropdown");
+    var selectedOptions = Array.from(dropdown.selectedOptions).map(option => option.value);
+    var inputField = document.getElementById("myInputField");
+    inputField.value = selectedOptions.join(", ");
+  }
+</script>
